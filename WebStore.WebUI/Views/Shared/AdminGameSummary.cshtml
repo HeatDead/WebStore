@@ -1,0 +1,22 @@
+﻿@model WebStore.Domain.Entities.Game
+
+<div class="adminWell">
+    <div class="barCont">ID: @Model.GameID</div>
+    <div class="barCont">Name: @Model.Name</div>
+    <div class="barCont">Price: @Model.Price</div>
+    <div class="barCont">Quanity: @Model.Quanity</div>
+    <div class="barCont">
+        @using (Html.BeginForm("Edit", "AdminPanel"))
+        {
+            @Html.Hidden("gameId", @Model.GameID)
+            <input type="submit" class="btn" value="Edit" />
+        }
+    </div>
+    <div class="barCont">
+        @using (Html.BeginForm("DeleteGame", "AdminPanel"))
+        {
+            @Html.Hidden("gameId", @Model.GameID)
+            <input type="submit" class="btn delete" value="Delete" />
+        }
+    </div>
+</div>

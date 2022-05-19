@@ -1,0 +1,26 @@
+﻿@model WebStore.Domain.Entities.Game
+
+@{
+    ViewBag.Title = "Add Game";
+}
+
+@using (Html.BeginForm("AddGame", "AdminPanel", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div>
+        @Html.Hidden("GameID", 0)
+        <p>Name: </p>
+        @Html.TextBox("Name")
+        <p>Description: </p>
+        @Html.TextArea("Description")
+        <p>Category: </p>
+        @Html.TextBox("Category")
+        <p>Price: </p>
+        @Html.TextBox("Price", 0, new { @type = "number", @min = "0" })
+        <p>Quanity: </p>
+        @Html.TextBox("Quanity", 0, new { @type = "number", @min = "0" })
+        <div class="text-center">
+            <input type="submit" value="Add" class="btn btn-success" />
+        </div>
+    </div>
+}

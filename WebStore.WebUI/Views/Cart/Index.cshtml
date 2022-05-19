@@ -1,0 +1,68 @@
+﻿@model WebStore.WebUI.Models.CartIndexViewModel
+
+@{
+    ViewBag.Title = "GameStore: Your Cart";
+}
+
+<style>
+    #cartTable td {
+        vertical-align: middle;
+    }
+</style>
+
+<h2>Your Cart</h2>
+<table id="cartTable" class="table">
+    <thead>
+        <tr>
+            <th>Count</th>
+            <th>Game</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Total price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-center">@line.quantity</td>
+                <td class="text-left">@line.game.Name</td>
+                <td class="text-right">@line.game.Price.ToString("$#")</td>
+                <td class="text-right">
+                    @((line.quantity * line.game.Price).ToString("$#"))
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        @Html.Hidden("GameId", line.game.GameID)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="btn delete" type="submit" value="Delete" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.Cart.ComputeTotalValue().ToString("$#")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+    @if (Model.User == null)
+    {
+        @Html.ActionLink("Login", "LoginForm", "Game",
+        new { @class = "btn" })
+    }
+    else
+    {
+        if (Model.Cart.Lines.Count() > 0)
+        {
+        @Html.ActionLink("Checkout", "Checkout", null, new { @class = "btn btn-primary" });
+        }
+    }
+</div>

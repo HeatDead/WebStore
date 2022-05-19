@@ -1,0 +1,15 @@
+﻿@model WebStore.WebUI.Domain.Entities.Cart
+
+<div class="barContRight">
+    <div class="barCont">
+        <b>In Cart:</b>
+        @Model.Lines.Sum(x => x.quantity) games,
+        @Model.ComputeTotalValue().ToString("$#")
+    </div>
+
+    <div class="barCont">
+        @Html.ActionLink("Order", "Index", "Cart",
+        new { returnUrl = Request.Url.PathAndQuery },
+        new { @class = "btn" })
+    </div>
+</div>

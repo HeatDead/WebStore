@@ -1,0 +1,26 @@
+﻿@model WebStore.Domain.Entities.Game
+
+@{
+    ViewBag.Title = "Edit - " + Model.Name;
+}
+
+@using (Html.BeginForm("EditGame", "AdminPanel", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div>
+        @Html.Hidden("GameID", Model.GameID)
+        <p>Name: </p>
+        @Html.TextBox("Name", Model.Name)
+        <p>Description: </p>
+        @Html.TextArea("Description", Model.Description)
+        <p>Category: </p>
+        @Html.TextBox("Category", Model.Category)
+        <p>Price: </p>
+        @Html.TextBox("Price", (int)Model.Price, new { @type = "number", @min = "0" })
+        <p>Quanity: </p>
+        @Html.TextBox("Quanity", (int)Model.Quanity, new { @type = "number", @min = "0" })
+        <div class="text-center">
+            <input type="submit" value="Apply" class="btn btn-success" />
+        </div>
+    </div>
+}

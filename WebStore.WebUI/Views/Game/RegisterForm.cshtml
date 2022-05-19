@@ -1,0 +1,41 @@
+﻿@model WebStore.WebUI.RegisterForm
+
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        <label>Login:</label>
+        @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Password:</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Name:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Surname:</label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Patronymic:</label>
+        @Html.TextBoxFor(x => x.Patronymic, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Phone:</label>
+        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Mail:</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    </div>
+    <div class="text-center">
+        <input type="submit" value="Register" class="btn btn-success" />
+    </div>
+}

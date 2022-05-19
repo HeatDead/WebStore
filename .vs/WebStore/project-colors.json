@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9ccaac04-9acd-4aef-95ee-55a69befcd1b": {
+      "ProjectGuid": "9ccaac04-9acd-4aef-95ee-55a69befcd1b",
+      "DisplayName": "WebStore.Domain",
+      "ColorIndex": 0
+    },
+    "d9938052-9246-40c4-afbc-bc60121cb8e5": {
+      "ProjectGuid": "d9938052-9246-40c4-afbc-bc60121cb8e5",
+      "DisplayName": "WebStore.WebUI",
+      "ColorIndex": 1
+    },
+    "b2150a48-06af-4ab9-9f3b-ddfa70a5f708": {
+      "ProjectGuid": "b2150a48-06af-4ab9-9f3b-ddfa70a5f708",
+      "DisplayName": "WebStore.Domain",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

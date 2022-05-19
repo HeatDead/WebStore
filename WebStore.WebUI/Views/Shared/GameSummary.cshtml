@@ -1,0 +1,17 @@
+﻿@model WebStore.Domain.Entities.Game
+
+<div class="well">
+    <h3>
+        <strong>@Model.Name</strong>
+        <span class="pull-right label label-primary">@Model.Price.ToString("$#")</span>
+    </h3>
+    <span class="lead">@Model.Description</span>
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        <div class="pull-right">
+            @Html.Hidden("gameId", @Model.GameID)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn" value="Add to cart" />
+        </div>
+    }
+</div>

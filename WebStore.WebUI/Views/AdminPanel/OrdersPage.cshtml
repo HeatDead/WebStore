@@ -1,0 +1,21 @@
+﻿@using WebStore.WebUI.Domain
+@model IEnumerable<WebStore.WebUI.Domain.Entities.Order>
+
+
+@foreach (var item in Model)
+{
+<div class="adminWell">
+    <div class="barCont">ID: @item.Id</div>
+    <div class="barCont">UserID: @item.UserId</div>
+    @if (@DatabaseRelation.getUser(item.UserId) != null)
+    {
+        <div class="barCont">@DatabaseRelation.getUser(item.UserId).Name @DatabaseRelation.getUser(item.UserId).Surname</div>
+    }
+    else
+    {
+        <div class="barCont">THE USER DOES NOT EXIST</div>
+    }
+    <div class="barCont">GameID: @item.GameId</div>
+    <div class="barCont">@DatabaseRelation.getGame(item.GameId).Name</div>
+</div>
+}

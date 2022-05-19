@@ -1,0 +1,12 @@
+﻿@using WebStore.WebUI.Models
+@using WebStore.WebUI.HtmlHelpers
+@model GamesListViewModel
+
+@{
+    ViewBag.Title = "Edit Panel";
+}
+
+@foreach (var p in @Model.Games)
+{
+    @Html.Partial("AdminGameSummary", p)
+}

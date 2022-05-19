@@ -1,0 +1,8 @@
+﻿@model WebStore.WebUI.Domain.Entities.User
+
+Hello, admin! - @Model.Name
+@Html.ActionLink("Admin Panel", "Index", "AdminPanel",
+new { returnUrl = Request.Url.PathAndQuery },
+new { @class = "btn" })
+@Html.ActionLink("LogOut", "LogOut", "Game",
+new { @class = "btn" })
